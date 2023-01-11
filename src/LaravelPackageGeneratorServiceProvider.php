@@ -14,7 +14,7 @@ class LaravelPackageGeneratorServiceProvider extends ServiceProvider
 
         //Publish Config
         $this->publishes([
-            __DIR__.'/../config/tomato-settings.php' => config_path('laravel-package-generator.php'),
+            __DIR__.'/../config/laravel-package-generator.php' => config_path('laravel-package-generator.php'),
         ], 'config');
 
         //Publish Stubs
