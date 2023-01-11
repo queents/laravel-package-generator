@@ -35,7 +35,7 @@ class LaravelPackageGenerator extends Command
     {
         parent::__construct();
         $this->publish = __DIR__ .'/../../publish/';
-        $this->stubPath = __DIR__ .'/../../stubs/';
+        $this->stubPath = config('laravel-package-generator.stub-path');
     }
 
 
@@ -81,8 +81,8 @@ class LaravelPackageGenerator extends Command
         $this->info('Generating package boilerplate...');
 
         //create package directory
-        if(!File::exists(base_path('packages'))){
-            File::makeDirectory(base_path('packages'));
+        if(!File::exists(base_path(config('laravel-package-generator.packages-folder')))){
+            File::makeDirectory(base_path(config('laravel-package-generator.packages-folder')));
         }
 
         $packageVendorPath = $packageVendorString
@@ -92,8 +92,8 @@ class LaravelPackageGenerator extends Command
             ->toString();
 
         //Create vendor directory
-        if(!File::exists(base_path('packages') . "/" .$packageVendorPath)){
-            File::makeDirectory(base_path('packages') . "/" .$packageVendorPath);
+        if(!File::exists(base_path(config('laravel-package-generator.packages-folder')) . "/" .$packageVendorPath)){
+            File::makeDirectory(base_path(config('laravel-package-generator.packages-folder')) . "/" .$packageVendorPath);
         }
 
         $packageNamePath = $packageString
@@ -103,11 +103,11 @@ class LaravelPackageGenerator extends Command
             ->toString();
 
         //Create package directory
-        if(!File::exists(base_path('packages') . "/" .$packageVendor . "/" . $packageNamePath)){
-            File::makeDirectory(base_path('packages') . "/" .$packageVendor . "/" . $packageNamePath);
+        if(!File::exists(base_path(config('laravel-package-generator.packages-folder')) . "/" .$packageVendor . "/" . $packageNamePath)){
+            File::makeDirectory(base_path(config('laravel-package-generator.packages-folder')) . "/" .$packageVendor . "/" . $packageNamePath);
         }
 
-        $packagePath = base_path('packages') . "/" .$packageVendorPath . "/" . $packageNamePath;
+        $packagePath = base_path(config('laravel-package-generator.packages-folder')) . "/" .$packageVendorPath . "/" . $packageNamePath;
 
         //Build a package inside vendor directory
         $packageConfig !== 'yes' ? null : $this->handelFile('config', $packagePath. "/config", 'folder');
