@@ -1,0 +1,38 @@
+{
+    "name": "queents/package-template",
+    "type": "library",
+    "description": "A package template to build PHP packages",
+    "keywords": [
+        "php",
+        "laravel",
+        "template"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Queents\\PackageTemplate\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Queents\\PackageTemplate\\PackageTemplateServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Fady Mondy",
+            "email": "EngFadyMondy@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2",
+        "queents/console-helpers": "^1.0"
+    }
+}
