@@ -1,41 +1,37 @@
-# Package Template
+# {{ name }}
 
-You can put your description here...
+{{ description }}
 
 ## Installation
 
 ```bash
-composer require queents/package-template
+composer require {{ vendor }}/{{ package }}
 ```
 your install here
 
 ```bash
-php artisan package-template:install
+php artisan {{ command }}:install
 ```
 
 ## Using
 
-you can generate a new setting for this package by use this command
-
-```bash
-php artisan tomato:setting
-```
-
-it will ask you for the setting name and if you like to put it inside a module as HMVC.
-
-after run the command you must register the menu on the `tomato-admin` config or Module provider.
+your using here..
 
 ## Support
 
-you can join our discord server to get support [VILT Admin](https://discord.gg/HUNYbgKDdx)
+your support link here..
 
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
+## Security
+
+Please see [SECURITY](SECURITY.md) for more information about security.
+
 ## Credits
 
-- [Queen Tech Solutions](https://github.com/queents)
+- [{{ vendorName }}](mailto:{{ email }})
 
 ## License
 

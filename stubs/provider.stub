@@ -1,56 +1,15 @@
 <?php
 
-namespace Queents\TomatoTranslations;
+namespace {{ namespace }};
 
 use Illuminate\Support\ServiceProvider;
-use Queents\TomatoPHP\Services\Menu\TomatoMenuRegister;
-use Queents\TomatoSettings\Console\TomatoSettingGenerator;
-use Queents\TomatoSettings\Menus\SettingsMenu;
-use Queents\TomatoTranslations\Console\TomatoTranslationsInstall;
 
-class TomatoTranslationsServiceProvider extends ServiceProvider
+
+class {{ name }} extends ServiceProvider
 {
     public function register(): void
     {
-        //Register Migrations
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-
-        //Register Config file
-        $this->mergeConfigFrom(__DIR__.'/../config/tomato-settings.php', 'tomato-settings');
-
-        //Register views
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'tomato-settings');
-
-        //Register Langs
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'tomato-settings');
-
-        //Register Routes
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-
-        //Publish Views
-        $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/tomato-settings'),
-        ], 'views');
-
-        //Publish Config
-        $this->publishes([
-            __DIR__.'/../config/tomato-settings.php' => config_path('tomato-settings.php'),
-        ], 'config');
-
-        //Publish Lang
-        $this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/tomato-settings'),
-        ], 'lang');
-
-        //Publish Migrations
-        $this->publishes([
-            __DIR__.'/../database/migrations' => database_path('migrations'),
-        ], 'migrations');
-
-        //Register generate command
-        $this->commands([
-            TomatoTranslationsInstall::class,
-        ]);
+        {{ register }}
     }
 
     public function boot(): void

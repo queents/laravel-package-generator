@@ -1,7 +1,7 @@
 {
-    "name": "queents/package-template",
+    "name": "{{ vendor }}/{{ package }}",
     "type": "library",
-    "description": "A package template to build PHP packages",
+    "description": "{{ description }}",
     "keywords": [
         "php",
         "laravel",
@@ -10,7 +10,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Queents\\PackageTemplate\\": "src/"
+            "{{ namespace }}\\": "src/"
         }
     },
     "autoload-dev": {
@@ -21,14 +21,14 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Queents\\PackageTemplate\\PackageTemplateServiceProvider"
+                "{{ namespace }}\\{{ provider }}"
             ]
         }
     },
     "authors": [
         {
-            "name": "Fady Mondy",
-            "email": "EngFadyMondy@gmail.com"
+            "name": "{{ author }}",
+            "email": "{{ email }}"
         }
     ],
     "require": {
